@@ -160,20 +160,21 @@ class _RegisterPetState extends State<RegisterPet> {
                           "age": ageController.text,
                           "type": dropdownValue
                         }).then((_) {
-                          Scaffold.of(context).showSnackBar(SnackBar(
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text('mascota agregada con exito')));
                           ageController.clear();
                           nameController.clear();
                         }).catchError((onError) {
-                          Scaffold.of(context)
+                          ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text(onError)));
                         });
                       }
                     },
                     child: Text('Agregar'),
                   ),
-                  RaisedButton(
-                    color: Colors.amber,
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: Colors.amber),
+                    //color: Colors.amber,
                     onPressed: () {
                       Navigator.push(
                         context,
